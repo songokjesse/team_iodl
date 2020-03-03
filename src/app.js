@@ -5,7 +5,7 @@ const cors = require('cors');
 const routes = require('../src/routes');
 const  app = express();
 
-app.use(logger('common'));
+app.use(logger('dev'));
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
@@ -22,6 +22,7 @@ app.use((req,res,next)=>{
 });
 
 // error handler
+/*eslint no-unused-vars: "next"*/
 app.use((err,req,res,next)=>{
     res.status(err.status || 500);
     res.json({
