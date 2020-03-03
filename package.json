@@ -1,0 +1,29 @@
+{
+  "name": "team_iodl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "dev": "nodemon server",
+    "start": "node server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "2.0.0-rc1",
+    "sequelize-cli": "^5.5.1"
+  }
+}
