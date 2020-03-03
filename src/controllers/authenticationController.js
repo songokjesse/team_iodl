@@ -1,19 +1,19 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { check, sanitizeBody, validationResult} = require('express-validator');
+const { body, validationResult} = require('express-validator');
 const Model = require('../models');
 const UserRegister = [
     //Field Validation
-    check('name').isLength({ min: 5}),
-    check('email').isEmail(),
-    check('password').isLength({ min: 5}),
-    check('confirmPassword', 'Passwords do not match').custom((value, {req}) => (value === req.body.password)),
+    body('name').isLength({ min: 5}),
+    body('email').isEmail(),
+    body('password').isLength({ min: 5}),
+    body('confirmPassword', 'Passwords do not match').custom((value, {req}) => (value === req.body.password)),
 
     //Sanitize Form inputs
-    sanitizeBody('email').escape(),
-    sanitizeBody('name').escape(),
-    sanitizeBody('password').escape(),
-
+    // sanitizeBody('email').escape(),
+    // sanitizeBody('name').escape(),
+    // sanitizeBody('password').escape(),
+    //
     //Process Form Input
     (req,res,next) => {
         const errors = validationResult(req);
@@ -56,12 +56,12 @@ const UserRegister = [
 
 const UserLogin = [
     //Field Validation
-    check('email').isEmail(),
-    check('password').isLength({ min: 5}),
+    body('email').isEmail(),
+    body('password').isLength({ min: 5}),
 
     //Sanitize Form inputs
-    sanitizeBody('email').escape(),
-    sanitizeBody('password').escape(),
+    // sanitizeBody('email').escape(),
+    // sanitizeBody('password').escape(),
 
     //Process Form Input
     (req,res,next) => {
