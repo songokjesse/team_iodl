@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         userId: DataTypes.INTEGER
     }, {});
     Activity.associate = function(models) {
-        Post.belongsTo(models.User, {
+        Activity.belongsTo(models.User, {
             foreignKey: 'userId',
             as: 'author',
             onDelete: 'CASCADE',
